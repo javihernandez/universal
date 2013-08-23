@@ -49,53 +49,55 @@
                             }
                         }
                     },
-                    "expander": [{
-                        "type": "fluid.model.transform.arrayToOutputs",
-                        "inputPath": "display.screenEnhancement.tracking",
-                        "presentValue": {
-                            "value": 1,
-                            "dataType": "REG_DWORD"
-                        },
-                        "missingValue": {
-                            "value": 0,
-                            "dataType": "REG_DWORD"
-                        },
-                        "options": {
-                            "mouse": {
-                                "outputPath": "FollowMouse",
-                                "outputValue": {
-                                    "value": {
-                                        "value": 1,
-                                        "dataType": "REG_DWORD"
+                    "expander": [
+                        {
+                            "type": "fluid.model.transform.arrayToOutputs",
+                            "inputPath": "display.screenEnhancement.tracking",
+                            "presentValue": {
+                                "value": 1,
+                                "dataType": "REG_DWORD"
+                            },
+                            "missingValue": {
+                                "value": 0,
+                                "dataType": "REG_DWORD"
+                            },
+                            "options": {
+                                "mouse": {
+                                    "outputPath": "FollowMouse",
+                                    "outputValue": {
+                                        "value": {
+                                            "value": 1,
+                                            "dataType": "REG_DWORD"
+                                        }
+                                    }
+                                },
+                                "caret": {
+                                    "outputPath": "FollowCaret",
+                                    "outputValue": {
+                                        "value": {
+                                            "value": 1,
+                                            "dataType": "REG_DWORD"
+                                        }
+                                    }
+                                },
+                                "focus": {
+                                    "outputPath": "FollowFocus",
+                                    "outputValue": {
+                                        "value": {
+                                            "value": 1,
+                                            "dataType": "REG_DWORD"
+                                        }
                                     }
                                 }
                             },
-                            "caret": {
-                                "outputPath": "FollowCaret",
-                                "outputValue": {
-                                    "value": {
-                                        "value": 1,
-                                        "dataType": "REG_DWORD"
-                                    }
+                            "dataType": {
+                                "expander": {
+                                    "type": "fluid.model.transform.literalValue",
+                                    "value": "REG_DWORD"
                                 }
-                            },
-                            "focus": {
-                                "outputPath": "FollowFocus",
-                                "outputValue": {
-                                    "value": {
-                                        "value": 1,
-                                        "dataType": "REG_DWORD"
-                                    }
-                                }
-                            }
-                        },
-                        "dataType": {
-                            "expander": {
-                                "type": "fluid.model.transform.literalValue",
-                                "value": "REG_DWORD"
                             }
                         }
-                    }
+                    ]
                 }
             }
         ],
@@ -107,7 +109,8 @@
                     "command": "${{environment}.SystemRoot}\\System32\\Magnify.exe"
                 }
             ],
-            "stop": [ {
+            "stop": [
+                {
                     "type": "gpii.launch.exec",
                     "command": "${{environment}.SystemRoot}\\System32\\taskkill.exe /f /im Magnify.exe"
                 },
@@ -115,7 +118,6 @@
             ]
         }
     },
-
     {
         "name": "UI Options",
         "id": "fluid.uiOptions.windows",
@@ -155,7 +157,6 @@
             ]
         }
     },
-
     {
         "name": "Windows Built-in Onscreen Keyboard",
         "id": "com.microsoft.windows.onscreenKeyboard",
@@ -192,7 +193,6 @@
             ]
         }
     },
-
     {
         "name": "NVDA Screen Reader",
         "id": "nvda.screenReader",
@@ -469,9 +469,6 @@
                                     "outputValue": "zh"
                                 },
                                 "zh-yue": {
-                                    "outputValue": "zh-yue"
-                                },
-                                "zh-yue": {
                                     "outputValue": "yue"
                                 }
                             }
@@ -492,7 +489,8 @@
                 {
                     "type": "gpii.launch.exec",
                     "command": "${{environment}.SystemRoot}\\System32\\taskkill.exe /f /im nvda_service.exe"
-                },{
+                },
+                {
                     "type": "gpii.launch.exec",
                     "command": "${{environment}.SystemRoot}\\System32\\taskkill.exe /f /im nvda.exe"
                 },
@@ -500,7 +498,6 @@
             ]
         }
     },
-
     {
         "name": "EasyOne Communicator Windows",
         "id": "trace.easyOne.communicator.windows",
@@ -512,7 +509,6 @@
                 }
             ]
         },
-
         "settingsHandlers": [
             {
                 "type": "gpii.settingsHandlers.noSettings",
@@ -523,7 +519,7 @@
                 ]
             }
         ],
-        "lifecycleManager" : {
+        "lifecycleManager": {
             "start": [
                 {
                     "type": "gpii.launch.exec",
@@ -538,7 +534,6 @@
             ]
         }
     },
-
     {
         "name": "EasyOne Communicator Sudan",
         "id": "trace.easyOne.sudan.windows",
@@ -560,7 +555,7 @@
                 ]
             }
         ],
-        "lifecycleManager" : {
+        "lifecycleManager": {
             "start": [
                 {
                     "type": "gpii.launch.exec",
@@ -575,7 +570,6 @@
             ]
         }
     },
-
     {
         "name": "Web Anywhere",
         "id": "webinsight.webAnywhere.windows",
@@ -597,8 +591,8 @@
                 ]
             }
         ],
-        "lifecycleManager" : {
-             "start": [
+        "lifecycleManager": {
+            "start": [
                 {
                     "type": "gpii.launch.exec",
                     "command": "\"${{environment}.PROGRAMFILES(x86)}\\Mozilla Firefox\\firefox.exe\" \"http://webanywhere.cs.washington.edu/beta/?starting_url=http://ec2-107-21-143-113.compute-1.amazonaws.com:443/demos/Mammals.html?token=${{userToken}}\""
@@ -612,7 +606,6 @@
             ]
         }
     },
-
     {
         "name": "maavis",
         "id": "net.opendirective.maavis",
@@ -624,14 +617,18 @@
                 }
             ]
         },
-
-        "settingsHandlers": [{
-            "type": "gpii.settingsHandlers.JSONSettingsHandler.set",
-            "options": { "path": "${{environment}.MAAVIS_HOME}\\MaavisMedia\\Users\\Default\\userconfig.json" },
-            "capabilities": [ "applications.net\\.opendirective\\.maavis.id" ]
-        }],
-
-         "lifecycleManager": {
+        "settingsHandlers": [
+            {
+                "type": "gpii.settingsHandlers.JSONSettingsHandler.set",
+                "options": {
+                    "path": "${{environment}.MAAVIS_HOME}\\MaavisMedia\\Users\\Default\\userconfig.json"
+                },
+                "capabilities": [
+                    "applications.net\\.opendirective\\.maavis.id"
+                ]
+            }
+        ],
+        "lifecycleManager": {
             "start": [
                 "setSettings",
                 {
@@ -648,7 +645,6 @@
             ]
         }
     },
-
     {
         "name": "Windows High Contrast",
         "id": "com.microsoft.windows.highContrast",
@@ -701,7 +697,6 @@
             ]
         }
     },
-
     {
         "name": "Windows Non-client Metrics",
         "id": "com.microsoft.windows.nonClientMetrics",
@@ -850,7 +845,6 @@
             ]
         }
     },
-
     {
         "name": "Windows Mouse Tracking",
         "id": "com.microsoft.windows.mouseTracking",
@@ -905,7 +899,6 @@
             ]
         }
     },
-
     {
         "name": "Windows Cursors",
         "id": "com.microsoft.windows.cursors",
@@ -1323,7 +1316,6 @@
             ]
         }
     },
-    
     {
         "name": "Windows High Contrast",
         "id": "com.microsoft.windows.highContrast",
@@ -1376,7 +1368,6 @@
             ]
         }
     },
-    
     {
         "name": "Windows Non-client Metrics",
         "id": "com.microsoft.windows.nonClientMetrics",
@@ -1528,7 +1519,6 @@
             ]
         }
     },
-    
     {
         "name": "Windows Mouse Trailing",
         "id": "com.microsoft.windows.mouseTrailing",
@@ -1583,7 +1573,6 @@
             ]
         }
     },
-    
     {
         "name": "Windows Cursors",
         "id": "com.microsoft.windows.cursors",
@@ -1606,7 +1595,7 @@
                     "display.screenEnhancement.cursorSize"
                 ],
                 "capabilitiesTransformations": {
-                    "expander": [ 
+                    "expander": [
                         {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "Arrow.value",
@@ -1631,14 +1620,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_arrow_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_arrow_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_arrow_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "Arrow.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "Hand.value",
                             "condition": {
@@ -1662,14 +1653,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_link_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_link_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_link_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "Hand.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "Help.value",
                             "condition": {
@@ -1693,14 +1686,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_helpsel_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_helpsel_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_helpsel_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "Help.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "AppStarting.value",
                             "condition": {
@@ -1724,14 +1719,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_working_l.ani",
-                                    "false": "%SystemRoot%\\cursors\\aero_working_xl.ani"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_working_xl.ani"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "AppStarting.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "No.value",
                             "condition": {
@@ -1755,14 +1752,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_unavail_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_unavail_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_unavail_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "No.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "NWPen.value",
                             "condition": {
@@ -1786,14 +1785,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_pen_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_pen_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_pen_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "NWPen.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "SizeAll.value",
                             "condition": {
@@ -1817,14 +1818,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_move_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_move_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_move_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "SizeAll.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "SizeNESW.value",
                             "condition": {
@@ -1848,14 +1851,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_nesw_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_nesw_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_nesw_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "SizeNESW.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "SizeNS.value",
                             "condition": {
@@ -1879,14 +1884,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_ns_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_ns_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_ns_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "SizeNS.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "SizeNWSE.value",
                             "condition": {
@@ -1910,14 +1917,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_nwse_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_nwse_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_nwse_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "SizeNWSE.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "SizeWE.value",
                             "condition": {
@@ -1941,14 +1950,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_ew_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_ew_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_ew_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "SizeWE.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "UpArrow.value",
                             "condition": {
@@ -1972,14 +1983,16 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_up_l.cur",
-                                    "false": "%SystemRoot%\\cursors\\aero_up_xl.cur"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_up_xl.cur"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "UpArrow.dataType"
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.condition",
                             "outputPath": "Wait.value",
                             "condition": {
@@ -2003,10 +2016,11 @@
                                         }
                                     },
                                     "true": "%SystemRoot%\\cursors\\aero_busy_l.ani",
-                                    "false": "%SystemRoot%\\cursors\\aero_busy_xl.ani"                                        
+                                    "false": "%SystemRoot%\\cursors\\aero_busy_xl.ani"
                                 }
                             }
-                        }, {
+                        },
+                        {
                             "type": "fluid.model.transform.literalValue",
                             "value": "REG_SZ",
                             "outputPath": "Wait.dataType"
@@ -2016,8 +2030,8 @@
             }
         ],
         "lifecycleManager": {
-            "start": [ 
-                "setSettings", 
+            "start": [
+                "setSettings",
                 {
                     "type": "gpii.launch.exec",
                     "command": "node gpii\\node_modules\\setcursors.js"
