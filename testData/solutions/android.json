@@ -10,7 +10,7 @@
         },
         "settingsHandlers": [
             {
-                "type": "gpii.settingsHandlers.noSettings",
+                "type": "gpii.androidActivityManager.noSettings",
                 "capabilities": [
                     "display.screenReader",
                     "applications.com\\.android\\.freespeech.id",
@@ -42,7 +42,10 @@
         },
         "settingsHandlers": [
             {
-                "type": "gpii.settingsHandlers.noSettings",
+                "type": "gpii.androidActivityManager.androidSettings.set",
+                "options": {
+                     "settingType": "Secure"
+                 },
                 "capabilities": [
                     "display.screenReader",
                     "applications.com\\.android\\.talkback.id",
@@ -52,6 +55,7 @@
         ],
         "lifecycleManager": {
             "start": [
+		"setSettings",
                 {
                     "type": "gpii.androidActivityManager.startTalkback"
                 }
@@ -59,7 +63,8 @@
             "stop": [
                 {
                     "type": "gpii.androidActivityManager.stopTalkback"
-                }
+                },
+                "restoreSettings"
             ]
         }
     },
@@ -99,6 +104,162 @@
             "start": [ "setSettings" ],
             "stop": [ "restoreSettings" ]
         }
+    },
+
+    {
+        "name": "Android Change TTS Pitch Demo",
+        "id": "com.android.changettspitch",
+        "contexts": {
+            "OS": [{
+                    "id": "android",
+                    "version": ">=0.1"
+                }]
+        },
+        "settingsHandlers": [
+            {
+                "type": "gpii.androidActivityManager.androidSettings.set",
+		"options": {
+                     "settingType": "Secure"
+                 },
+                "capabilities": [ 
+                    "applications.com\\.android\\.changettspitch.id" 
+                ]
+            }
+        ],
+        "lifecycleManager": {
+            "start": [ "setSettings" ],
+            "stop": [ "restoreSettings" ]
+        }
+    },
+
+    {
+        "name": "Android Change Rotation Demo",
+        "id": "com.android.changerotation",
+        "contexts": {
+            "OS": [{
+                    "id": "android",
+                    "version": ">=0.1"
+                }]
+        },
+        "settingsHandlers": [
+            {
+                "type": "gpii.androidActivityManager.androidSettings.set",
+		"options": {
+                     "settingType": "System"
+                 },
+                "capabilities": [ 
+                    "applications.com\\.android\\.changerotation.id" 
+                ]
+            }
+        ],
+        "lifecycleManager": {
+            "start": [ "setSettings" ],
+            "stop": [ "restoreSettings" ]
+        }
+    },
+	
+    {
+        "name": "Android Change Default Rotation Demo",
+        "id": "com.android.changedefrot",
+        "contexts": {
+            "OS": [{
+                    "id": "android",
+                    "version": ">=0.1"
+                }]
+        },
+        "settingsHandlers": [
+            {
+                "type": "gpii.androidActivityManager.androidSettings.set",
+		"options": {
+                     "settingType": "System"
+                 },
+                "capabilities": [ 
+                    "applications.com\\.android\\.changedefrot.id" 
+                ]
+            }
+        ],
+        "lifecycleManager": {
+            "start": [ "setSettings" ],
+            "stop": [ "restoreSettings" ]
+        }
+    },
+
+    {
+        "name": "Android Change Volume Demo",
+        "id": "com.android.changevolume",
+        "contexts": {
+            "OS": [{
+                    "id": "android",
+                    "version": ">=0.1"
+                }]
+        },
+        "settingsHandlers": [
+            {
+                "type": "gpii.androidActivityManager.androidSettings.set",
+		"options": {
+                     "settingType": "AudioManager"
+                 },
+                "capabilities": [ 
+                    "applications.com\\.android\\.changevolume.id" 
+                ]
+            }
+        ],
+        "lifecycleManager": {
+            "start": [ "setSettings" ],
+            "stop": [ "restoreSettings" ]
+        }
+    },
+	
+    {
+        "name": "Android Change Brightness Demo",
+        "id": "com.android.changebrightness",
+        "contexts": {
+            "OS": [{
+                    "id": "android",
+                    "version": ">=0.1"
+                }]
+        },
+        "settingsHandlers": [
+            {
+                "type": "gpii.androidActivityManager.androidSettings.set",
+		"options": {
+                     "settingType": "System"
+                 },
+                "capabilities": [ 
+                    "applications.com\\.android\\.changebrightness.id" 
+                ]
+            }
+        ],
+        "lifecycleManager": {
+            "start": [ "setSettings" ],
+            "stop": [ "restoreSettings" ]
+        }
+    },
+	
+    {
+        "name": "Android Enable Haptic Feedback Demo",
+        "id": "com.android.enablehapticfeedback",
+        "contexts": {
+            "OS": [{
+                    "id": "android",
+                    "version": ">=0.1"
+                }]
+        },
+        "settingsHandlers": [
+            {
+                "type": "gpii.androidActivityManager.androidSettings.set",
+		"options": {
+                     "settingType": "System"
+                 },
+                "capabilities": [ 
+                    "applications.com\\.android\\.enablehapticfeedback.id" 
+                ]
+            }
+        ],
+        "lifecycleManager": {
+            "start": [ "setSettings" ],
+            "stop": [ "restoreSettings" ]
+        }
     }
- 
+
 ]

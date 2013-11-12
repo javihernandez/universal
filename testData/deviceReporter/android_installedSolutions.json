@@ -12,6 +12,25 @@
         },
         {
             "id": "com.android.freespeech"
-        }
+        },
+	{
+	    "id": "com.android.changerotation"
+	},
+	{
+	    "id": "com.android.changevolume"
+	},
+	{
+	    "id": "com.android.changebrightness"
+	},
+	{
+	    "id": "com.android.changettspitch"
+	},
+	{
+	    "id": "com.android.changedefrot"
+	},
+	{
+	    "id": "com.android.enablehapticfeedback"
+	}
+
     ]
 }
