@@ -149,6 +149,10 @@
 
     {
         "id": "net.gpii.uioPlus"
+    },
+
+    {
+        "id": "trace.easyOne.communicator.windows"
     }
 
 ]
