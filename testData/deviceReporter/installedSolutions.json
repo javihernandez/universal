@@ -153,6 +153,10 @@
 
     {
         "id": "trace.easyOne.communicator.windows"
+    },
+
+    {
+        "id": "org.nvda-project"
     }
 
 ]
