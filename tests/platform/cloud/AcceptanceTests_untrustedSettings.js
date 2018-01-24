@@ -13,14 +13,20 @@ Seventh Framework Programme (FP7/2007-2013) under grant agreement no. 289016.
 
 "use strict";
 
-var fluid = require("infusion");
-var gpii = fluid.registerNamespace("gpii");
+var fluid = require("infusion"),
+    gpii = fluid.registerNamespace("gpii"),
+    jqUnit = fluid.registerNamespace("jqUnit");
 
 fluid.require("%universal");
 
 gpii.loadTestingSupport();
 
 fluid.registerNamespace("gpii.tests.cloud.untrustedSettings");
+
+gpii.test.cloudBased.verifyPayloadMatchMakerOutput = function (body, expectedMatchMakerOutput) {
+    var payload = JSON.parse(body);
+    jqUnit.assertDeepEq("Verify expected matchMakerOutput", expectedMatchMakerOutput, payload.matchMakerOutput);
+};
 
 gpii.tests.cloud.untrustedSettings.sequence = [
     {
@@ -48,12 +54,11 @@ gpii.tests.cloud.untrustedSettings.testDefs = [
     {
         name: "Authorize magnifier (share magnifier settings)",
         userToken: "os_gnome",
-        authDecisions: [
+        authorizations: [
             {
+                type: "onboardedSolutionAuthorization",
                 gpiiToken: "os_gnome",
                 clientId: "client-3",
-                redirectUri: false,
-                accessToken: "os_gnome_magnifier_access_token",
                 selectedPreferences: { "increase-size.magnifier": true },
                 revoked: false
             }
@@ -77,20 +82,18 @@ gpii.tests.cloud.untrustedSettings.testDefs = [
     {
         name: "Authorize magnifier (share all) and desktop (share text size)",
         userToken: "os_gnome",
-        authDecisions: [
+        authorizations: [
             {
+                type: "onboardedSolutionAuthorization",
                 gpiiToken: "os_gnome",
                 clientId: "client-3",
-                redirectUri: false,
-                accessToken: "os_gnome_magnifier_access_token",
                 selectedPreferences: { "": true },
                 revoked: false
             },
             {
+                type: "onboardedSolutionAuthorization",
                 gpiiToken: "os_gnome",
                 clientId: "client-4",
-                redirectUri: false,
-                accessToken: "os_gnome_desktop_access_token",
                 selectedPreferences: { "increase-size.appearance.text-size": true },
                 revoked: false
             }
@@ -102,9 +105,6 @@ gpii.tests.cloud.untrustedSettings.testDefs = [
                         "org.gnome.desktop.a11y.magnifier": {
                             "active": true,
                             "settings": {
-                                "http://registry.gpii.net/common/volume": 0.5,
-                                "http://registry.gpii.net/common/fontSize": 9,
-                                "http://registry.gpii.net/common/cursorSize": 0.9,
                                 "http://registry.gpii.net/common/magnification": 1.5,
                                 "http://registry.gpii.net/common/magnifierPosition": "FullScreen"
                             }
@@ -131,42 +131,22 @@ gpii.tests.cloud.untrustedSettings.testDefs = [
                         "org.gnome.desktop.a11y.magnifier": {
                             "active": true,
                             "settings": {
-                                "http://registry.gpii.net/common/volume": 0.5,
-                                "http://registry.gpii.net/common/fontSize": 9,
-                                "http://registry.gpii.net/common/cursorSize": 0.9,
                                 "http://registry.gpii.net/common/magnification": 1.5,
                                 "http://registry.gpii.net/common/magnifierPosition": "FullScreen",
                                 "http://registry.gpii.net/applications/org.gnome.desktop.a11y.magnifier": {
                                     "mag-factor": 1.5,
                                     "screen-position": "full-screen"
-                                },
-                                "http://registry.gpii.net/applications/org.gnome.desktop.interface": {
-                                    "cursor-size": 90,
-                                    "text-scaling-factor": 0.75
-                                },
-                                "http://registry.gpii.net/applications/org.alsa-project": {
-                                    "masterVolume": 50
                                 }
                             }
                         },
                         "org.gnome.desktop.interface": {
                             "active": true,
                             "settings": {
-                                "http://registry.gpii.net/common/volume": 0.5,
                                 "http://registry.gpii.net/common/fontSize": 9,
                                 "http://registry.gpii.net/common/cursorSize": 0.9,
-                                "http://registry.gpii.net/common/magnification": 1.5,
-                                "http://registry.gpii.net/common/magnifierPosition": "FullScreen",
-                                "http://registry.gpii.net/applications/org.gnome.desktop.a11y.magnifier": {
-                                    "mag-factor": 1.5,
-                                    "screen-position": "full-screen"
-                                },
                                 "http://registry.gpii.net/applications/org.gnome.desktop.interface": {
                                     "cursor-size": 90,
                                     "text-scaling-factor": 0.75
-                                },
-                                "http://registry.gpii.net/applications/org.alsa-project": {
-                                    "masterVolume": 50
                                 }
                             }
                         },
@@ -174,18 +154,6 @@ gpii.tests.cloud.untrustedSettings.testDefs = [
                             "active": true,
                             "settings": {
                                 "http://registry.gpii.net/common/volume": 0.5,
-                                "http://registry.gpii.net/common/fontSize": 9,
-                                "http://registry.gpii.net/common/cursorSize": 0.9,
-                                "http://registry.gpii.net/common/magnification": 1.5,
-                                "http://registry.gpii.net/common/magnifierPosition": "FullScreen",
-                                "http://registry.gpii.net/applications/org.gnome.desktop.a11y.magnifier": {
-                                    "mag-factor": 1.5,
-                                    "screen-position": "full-screen"
-                                },
-                                "http://registry.gpii.net/applications/org.gnome.desktop.interface": {
-                                    "cursor-size": 90,
-                                    "text-scaling-factor": 0.75
-                                },
                                 "http://registry.gpii.net/applications/org.alsa-project": {
                                     "masterVolume": 50
                                 }
