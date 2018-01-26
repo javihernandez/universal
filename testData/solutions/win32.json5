@@ -17,6 +17,7 @@
                 "supportedSettings": {
                     "ZT\\.Enabled": {},
                     "ZT\\.Magnification\\.PrimaryWindow\\.Power\\.Level": {},
+                    "ZT\\.Magnification\\.PrimaryWindow\\.Type": {},
                     "ZT\\.Speech\\.CurrentVoice\\.Voice": {},
                     "ZT\\.Speech\\.CurrentVoice\\.Rate": {},
                     "ZT\\.Speech\\.CurrentVoice\\.Volume": {},
@@ -31,9 +32,30 @@
                 "capabilitiesTransformations": {
                     "ZT\\\\\\.Enabled": "http://registry\\.gpii\\.net/common/magnifierEnabled",
                     "ZT\\\\\\.Magnification\\\\\\.PrimaryWindow\\\\\\.Power\\\\\\.Level": "http://registry\\.gpii\\.net/common/magnification",
+                    "ZT\\\\\\.Magnification\\\\\\.PrimaryWindow\\\\\\.Type": {
+                        "transform": {
+                            "type": "fluid.transforms.valueMapper",
+                            "defaultInputPath": "http://registry\\.gpii\\.net/common/magnifierPosition",
+                            "match": {
+                                "FullScreen": "Full",
+                                "Lens": "Lens",
+                                "LeftHalf": "DockedLeft",
+                                "RightHalf": "DockedRight",
+                                "TopHalf": "DockedTop",
+                                "BottomHalf": "DockedBottom",
+                                "Custom": "Full"
+                            }
+                        }
+                    },
                     "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Voice": "http://registry\\.gpii\\.net/common/voice",
                     "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Rate": "http://registry\\.gpii\\.net/common/speechRate",
-                    "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Volume": "http://registry\\.gpii\\.net/common/volume",
+                    "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Volume": {
+                        "transform": {
+                            "type": "fluid.transforms.linearScale",
+                            "inputPath": "http://registry\\.gpii\\.net/common/volumeTTS",
+                            "factor": 100
+                        }
+                    },
                     "ZT\\\\\\.Magnification\\\\\\.PrimaryWindow\\\\\\.Power\\\\\\.Increase": "http://registry\\.gpii\\.net/common/increaseMagnification",
                     "ZT\\\\\\.Magnification\\\\\\.PrimaryWindow\\\\\\.Power\\\\\\.Decrease": "http://registry\\.gpii\\.net/common/decreaseMagnification",
                     "ZT\\\\\\.Mouse\\\\\\.Location\\\\\\.X": "http://registry\\.gpii\\.net/common/mouseLocationX",
@@ -42,7 +64,7 @@
                     "ZT\\\\\\.GPII\\\\\\.CenterMouse": "http://registry\\.gpii\\.net/common/centerMouse"
                 },
                 "inverseCapabilitiesTransformations": {
-                    "http://registry\\.gpii\\.net/common/magnifierEnabled": "ZT\\.Enabled",
+                    "http://registry\\.gpii\\.net/common/magnifierEnabled": "ZT\\\\\\.Enabled",
                     "http://registry\\.gpii\\.net/common/magnification": "ZT\\\\\\.Magnification\\\\\\.PrimaryWindow\\\\\\.Power\\\\\\.Level",
                     "http://registry\\.gpii\\.net/common/voice": "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Voice",
                     "http://registry\\.gpii\\.net/common/speechRate": "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Rate",
@@ -93,6 +115,11 @@
                   "type": "gpii.windows.closeProcessByName",
                   "filename": "Ztoff.exe"
             }
+        ],
+        "update": [
+            "stop",
+            "configure",
+            "start"
         ],
         "isInstalled": [
             {
