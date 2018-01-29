@@ -21,6 +21,7 @@
                     "ZT\\.Speech\\.CurrentVoice\\.Voice": {},
                     "ZT\\.Speech\\.CurrentVoice\\.Rate": {},
                     "ZT\\.Speech\\.CurrentVoice\\.Volume": {},
+                    "ZT\\.Reader\\.Verbosity\\.Level": {},
                     "ZT\\.Magnification\\.PrimaryWindow\\.Power\\.Increase": {},
                     "ZT\\.Magnification\\.PrimaryWindow\\.Power\\.Decrease": {},
                     "ZT\\.Mouse\\.Location\\.X": {},
@@ -47,7 +48,7 @@
                             }
                         }
                     },
-                    "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Voice": "http://registry\\.gpii\\.net/common/voice",
+                    "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Voice": "http://registry\\.gpii\\.net/common/screenReaderVoice",
                     "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Rate": "http://registry\\.gpii\\.net/common/speechRate",
                     "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Volume": {
                         "transform": {
@@ -56,6 +57,7 @@
                             "factor": 100
                         }
                     },
+                    "ZT\\\\\\.Reader\\\\\\.Verbosity\\\\\\.Level": "http://registry\\.gpii\\.net/common/screenReaderVerbosity",
                     "ZT\\\\\\.Magnification\\\\\\.PrimaryWindow\\\\\\.Power\\\\\\.Increase": "http://registry\\.gpii\\.net/common/increaseMagnification",
                     "ZT\\\\\\.Magnification\\\\\\.PrimaryWindow\\\\\\.Power\\\\\\.Decrease": "http://registry\\.gpii\\.net/common/decreaseMagnification",
                     "ZT\\\\\\.Mouse\\\\\\.Location\\\\\\.X": "http://registry\\.gpii\\.net/common/mouseLocationX",
@@ -66,7 +68,7 @@
                 "inverseCapabilitiesTransformations": {
                     "http://registry\\.gpii\\.net/common/magnifierEnabled": "ZT\\\\\\.Enabled",
                     "http://registry\\.gpii\\.net/common/magnification": "ZT\\\\\\.Magnification\\\\\\.PrimaryWindow\\\\\\.Power\\\\\\.Level",
-                    "http://registry\\.gpii\\.net/common/voice": "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Voice",
+                    "http://registry\\.gpii\\.net/common/screenReaderVoice": "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Voice",
                     "http://registry\\.gpii\\.net/common/speechRate": "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Rate",
                     "http://registry\\.gpii\\.net/common/volume": "ZT\\\\\\.Speech\\\\\\.CurrentVoice\\\\\\.Volume",
                     "http://registry\\.gpii\\.net/common/increaseMagnification": "ZT\\\\\\.Magnification\\\\\\.PrimaryWindow\\\\\\.Power\\\\\\.Increase",

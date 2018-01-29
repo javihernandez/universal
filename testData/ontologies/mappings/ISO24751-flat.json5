@@ -20,6 +20,8 @@
     "http://registry\\.gpii\\.net/common/highContrastTheme": "display.screenEnhancement.-provisional-highContrastTheme",
     "http://registry\\.gpii\\.net/common/mouseTrailing": "display.screenEnhancement.mouseTrailing",
     "http://registry\\.gpii\\.net/common/screenReaderBrailleOutput": "display.screenReader.-provisional-screenReaderBrailleOutput",
+    "http://registry\\.gpii\\.net/common/screenReaderVerbosity": "display.screenReader.-provisional-screenReaderVerbosity",
+    "http://registry\\.gpii\\.net/common/screenReaderVoice": "display.screenReader.-provisional-screenReaderVoice",
     "http://registry\\.gpii\\.net/common/auditoryOutLanguage": "display.screenReader.-provisional-auditoryOutLanguage",
     "http://registry\\.gpii\\.net/common/speechRate": "display.screenReader.speechRate",
     "http://registry\\.gpii\\.net/common/speakTutorialMessages": "display.screenReader.-provisional-speakTutorialMessages",

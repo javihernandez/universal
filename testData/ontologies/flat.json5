@@ -59,6 +59,20 @@
             "type": "boolean",
             "default": false
         },
+        "http://registry.gpii.net/common/screenReaderVerbosity": {
+            "title": "Screen reader verbosity",
+            "description": "Level of verbosity when producing text to speech",
+            "type": "string",
+            "default": "Expert",
+            "enum": ["Expert", "Intermediate", "Beginner"]
+        },
+        "http://registry.gpii.net/common/screenReaderVoice": {
+            "title": "Voice",
+            "description": "Voice to use when producing text to speech",
+            "type": "string",
+            "default": "David",
+            "enum": ["Zira", "David", "Paul", "Kate"]
+        },
         "http://registry.gpii.net/common/punctuationVerbosity": {
             "title": "Punctuation verbosity",
             "description": "Level of puctuacion verbosity when producing text to speech",
