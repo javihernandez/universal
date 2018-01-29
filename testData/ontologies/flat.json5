@@ -15,7 +15,8 @@
             "type": "number",
             "default": 150,
             "min": 1,
-            "divisibleBy": 1
+            "max": 360,
+            "divisibleBy": 5
         },
         "http://registry.gpii.net/common/trackingTTS": {
             "title": "TTS tracking mode",
@@ -176,6 +177,7 @@
             "type": "number",
             "default": 1,
             "min": 1,
+            "max": 60,
             "divisibleBy": 0.1
         },
         "http://registry.gpii.net/common/tracking": {
