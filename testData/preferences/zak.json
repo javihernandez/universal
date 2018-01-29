@@ -1,0 +1,22 @@
+{
+    "flat": {
+        "name": "Zak",
+        "contexts": {
+            "gpii-default": {
+                "name": "Default preferences",
+                "preferences": {
+                    "http://registry.gpii.net/applications/com.aisquared.zoomtext": {
+                        "http://registry.gpii.net/common/magnifierEnabled": true,
+			"http://registry.gpii.net/common/screenReaderVoice": "Zira",
+			"http://registry.gpii.net/common/speechRate": 200,
+			"http://registry.gpii.net/common/volumeTTS": 1,
+			"http://registry.gpii.net/common/screenReaderVerbosity": "Intermediate",
+			"http://registry.gpii.net/common/magnifierPosition": "FullScreen",
+			"http://registry.gpii.net/common/magnification": 1.2,
+                        "ZT\\.GPII\\.CenterMouse": true
+                    }
+                }
+            }
+        }
+    }
+}

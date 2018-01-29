@@ -5,7 +5,9 @@
             "gpii-default": {
                 "name": "Default preferences",
                 "preferences": {
-                    "http://registry.gpii.net/common/magnification": 2.0
+                    "http://registry.gpii.net/applications/com.microsoft.windows.magnifier": {
+                        "http://registry.gpii.net/common/magnification": 2.0
+                    }
                 }
             }
         }

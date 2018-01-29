@@ -19,9 +19,9 @@ function trim(word){
 function parse_settings_line(line){
 	try{
 		words = line.split("=");
-		
+
 		return {
-			"Key" : trim(words[0]), 
+			"Key" : trim(words[0]),
 			"Value" : trim(words[1])
 		}
 	} catch(e) {
@@ -35,7 +35,7 @@ function parse_settings_line(line){
 	}
 }
 
-/* 
+/*
  *	Open the ini <filename> and parse the settings into an array of objects
  *	Returns an array of objects
  * 	[
@@ -63,7 +63,8 @@ function load_settings_file(filename){
 
 	while(!settings_file.AtEndOfStream){
 		var line = settings_file.ReadLine();
-		settings.push(parse_settings_line(line));
+		var parsed_line = parse_settings_line(line);
+		settings.push(parsed_line);
 	}
 
 	return settings;
@@ -90,14 +91,34 @@ function write_settings_file(filename, settings){
 	file.Close();
 }
 
+/**
+ * Gets the location of the APPLOCALDATA folder.
+ */
+function zoomtext_folder() {
+	var WSHShell = new ActiveXObject("WScript.Shell");
+	var Env = WSHShell.Environment("PROCESS");
+	var zoomTextFolder = "";
+	var enVars = new Enumerator(Env);
+	
+	for(; !enVars.atEnd(); enVars.moveNext())
+	{
+		if (enVars.item().indexOf("LOCALAPPDATA") == 0) {
+			zoomTextFolder += enVars.item().split("=")[1] + "\\GPII\\ZoomText";
+		}
+	}
+	return zoomTextFolder;
+}
+
+var zoomtext_data_folder = zoomtext_folder();
+
 /*
  * Parse the arguments for this script
- * Usage: 
+ * Usage:
  * Return [SETTINGS_FILE_NAME, SCRIPT_TIME_OUT]
  */
 function parse_arguments(){
 	// Default Values
-	var SETTINGS_FILE_NAME = ".\\node_modules\\universal\\testData\\solutions\\zoomtext\\zoomtext_settings.ini";
+	var SETTINGS_FILE_NAME = zoomtext_data_folder + "\\zoomtext_settings.ini";
 	var SCRIPT_TIME_OUT = 0; // In seconds
 
 	var args = WScript.Arguments;
@@ -107,7 +128,7 @@ function parse_arguments(){
 		WScript.Echo("<SCRIPT_TIME_OUT>: Timeout in seconds for this script if ZoomText's API is not available");
 		WScript.Echo("DEFAULT = 0\n");
 		WScript.Echo("<SETTINGS_FILE_NAME>: Path to the ini settings file");
-		WScript.Echo("DEFAULT = \".\\node_modules\\universal\\testData\\solutions\\zoomtext\\zoomtext_settings.ini\"");
+		WScript.Echo("DEFAULT = \"" + SETTINGS_FILE_NAME+ "\"");
 		WScript.Quit(1);
 	}
 
@@ -137,18 +158,21 @@ function parse_arguments(){
  *
  * Note: This script will terminate after <SCRIPT_TIME_OUT> seconds if ZoomText's API is not available
  * The default value of <SCRIPT_TIME_OUT> is 0 seconds.
- * The default file path for <SETTINGS_FILE_NAME> is 
+ * The default file path for <SETTINGS_FILE_NAME> is
  * ".\\node_modules\\universal\\testData\\solutions\\zoomtext\\zoomtext_settings.ini"
  */
 
 // Get arguments
 args = parse_arguments();
-var SETTINGS_FILE_NAME = args[0];
+// Removed in favor of using GPII data folder
+// ==========================================
+// var SETTINGS_FILE_NAME = args[0];
+// ==========================================
 var SCRIPT_TIME_OUT = args[1];
-var SETTINGS_FILE_TO_RESTORE = ".\\node_modules\\universal\\testData\\solutions\\zoomtext\\zoomtext_settings_restore.ini";
+var SETTINGS_FILE_TO_RESTORE = zoomtext_data_folder + "\\zoomtext_settings_restore.ini";
 
 // Obtain settings to applu
-var settings_to_apply = load_settings_file(SETTINGS_FILE_NAME);
+var settings_to_apply = load_settings_file(args[0]);
 
 // Access ZoomText's API
 var ZT = null;
@@ -177,10 +201,32 @@ if(ZT == null){
 	WScript.Quit(1);
 }
 
+var valid_monitor_types = {
+	Full: "full",
+	Overlay: "overlay",
+	Lens: "lens",
+	Line: "line",
+	DockedLeft: "docked left",
+	DockedTop: "docked top",
+	DockedRight: "docked right",
+	DockedBottom: "docked bottom"
+};
+
+var supported_voices = {
+	Product: {
+		Zira: "Microsoft Zira Desktop - English (United States) English, American",
+		David: "Microsoft David Desktop - English (United States) English, American"
+	},
+	Person: {
+		Paul: "Paul",
+		Kate: "Kate"
+	}
+};
+
 // These functions apply the settings using ZoomText API if the settings are valid
 // Then return the inverted settings that can be used to restore the original settings
 map_settings_to_API = {
-	"ZT.Enabled": 
+	"ZT.Enabled":
 		function (args){
 			var retVal = "ZT.Enabled = " + ZT.Enabled;
 
@@ -204,14 +250,44 @@ map_settings_to_API = {
 			}
 		},
 
+	"ZT.Speech.CurrentVoice.Voice":
+		function (args) {
+			for (var product in supported_voices.Product) {
+				if (product === args) {
+					var person = ZT.Speech.FindVoice(supported_voices.Product[product], undefined);
+					ZT.Speech.CurrentVoice = person;
+
+					return "ZT.Speech.CurrentVoice.Voice = " + args;
+				}
+			}
+			for (var person in supported_voices.Person) {
+				if (person ===  args) {
+					var voice = ZT.Speech.FindVoice(undefined, supported_voices.Person[person]);
+					ZT.Speech.CurrentVoice = voice;
+
+					return "ZT.Speech.CurrentVoice.Voice = " + args;
+				}
+			}
+
+			return "ZT.Speech.CurrentVoice.Voice = " + "Paul";
+		},
+
 	"ZT.Speech.CurrentVoice.Rate":
 		function (args){
 			var retVal = "ZT.Speech.CurrentVoice.Rate = " + ZT.Speech.CurrentVoice.Rate;
 
 			if(!isNaN(parseFloat(args))){
-				ZT.Speech.CurrentVoice.Rate = parseFloat(args);
+				var wpm = parseFloat(args);
+				if (wpm <= 60) {
+					ZT.Speech.CurrentVoice.Rate = 0;
+				} else if (wpm >= 360) {
+					ZT.Speech.CurrentVoice.Rate = 100;
+				} else {
+					ZT.Speech.CurrentVoice.Rate = (wpm - 60) / 3;
+				}
 				return retVal;
 			}
+
 		},
 
 	"ZT.Speech.CurrentVoice.Volume":
@@ -232,6 +308,24 @@ map_settings_to_API = {
 			}
 		},
 
+	"ZT.Magnification.PrimaryWindow.Type":
+		function (args) {
+			var reverse_v_m = {};
+			for (var key in valid_monitor_types) {
+				reverse_v_m[valid_monitor_types[key]] = key;
+			}
+
+			var retVal = "ZT.Magnification.PrimaryWindow.Type = " + reverse_v_m[ZT.Magnification.PrimaryWindow.Type];
+
+			for (var type in valid_monitor_types) {
+				if (type === args) {
+					ZT.Magnification.PrimaryWindow.Type = valid_monitor_types[args];
+				}
+			}
+
+			return retVal;
+		},
+
 	"ZT.Magnification.PrimaryWindow.Power.Decrease":
 		function (args){
 			if(args == "true"){
@@ -247,7 +341,7 @@ map_settings_to_API = {
 
 			if(!isNaN(x)){
 				var point = ZT.CreateObject("Point");
-				
+
 				if(x >= 0 && x <= ZT.Magnification.PrimaryWindow.Location.Right){
 					point.Set(x, ZT.Mouse.Location.Y);
 					ZT.Mouse.Location = point;
@@ -292,7 +386,7 @@ map_settings_to_API = {
 						ZT.Magnification.PrimaryWindow.ViewToMouse();
 						return retVal;
 					}
-				} 
+				}
 			}
 		},
 
@@ -317,9 +411,13 @@ var settings_to_restore = new Array();
 
 for (i in settings_to_apply){
 	var item = settings_to_apply[i];
-	
-	try{	
-		settings_to_restore.push(map_settings_to_API[item.Key](item.Value));
+
+	try {
+		var setting_func = map_settings_to_API[item.Key];
+
+		if (setting_func !== undefined) {
+			settings_to_restore.push(setting_func(item.Value));
+		}
 	} catch(e) {
 		if((e.number & 0xFFFF) == 438){
 			// This settings does not exist in ZoomText's API or its mapping is not implemented yet

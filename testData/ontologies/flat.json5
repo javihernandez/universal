@@ -15,7 +15,8 @@
             "type": "number",
             "default": 150,
             "min": 1,
-            "divisibleBy": 1
+            "max": 360,
+            "divisibleBy": 5
         },
         "http://registry.gpii.net/common/trackingTTS": {
             "title": "TTS tracking mode",
@@ -57,6 +58,20 @@
             "description": "Whether to enable/disable braille output",
             "type": "boolean",
             "default": false
+        },
+        "http://registry.gpii.net/common/screenReaderVerbosity": {
+            "title": "Screen reader verbosity",
+            "description": "Level of verbosity when producing text to speech",
+            "type": "string",
+            "default": "Expert",
+            "enum": ["Expert", "Intermediate", "Beginner"]
+        },
+        "http://registry.gpii.net/common/screenReaderVoice": {
+            "title": "Voice",
+            "description": "Voice to use when producing text to speech",
+            "type": "string",
+            "default": "David",
+            "enum": ["Zira", "David", "Paul", "Kate"]
         },
         "http://registry.gpii.net/common/punctuationVerbosity": {
             "title": "Punctuation verbosity",
@@ -176,6 +191,7 @@
             "type": "number",
             "default": 1,
             "min": 1,
+            "max": 60,
             "divisibleBy": 0.1
         },
         "http://registry.gpii.net/common/tracking": {

@@ -20,6 +20,8 @@
     "http://registry\\.gpii\\.net/common/highContrastTheme": "display.screenEnhancement.-provisional-highContrastTheme",
     "http://registry\\.gpii\\.net/common/mouseTrailing": "display.screenEnhancement.mouseTrailing",
     "http://registry\\.gpii\\.net/common/screenReaderBrailleOutput": "display.screenReader.-provisional-screenReaderBrailleOutput",
+    "http://registry\\.gpii\\.net/common/screenReaderVerbosity": "display.screenReader.-provisional-screenReaderVerbosity",
+    "http://registry\\.gpii\\.net/common/screenReaderVoice": "display.screenReader.-provisional-screenReaderVoice",
     "http://registry\\.gpii\\.net/common/auditoryOutLanguage": "display.screenReader.-provisional-auditoryOutLanguage",
     "http://registry\\.gpii\\.net/common/speechRate": "display.screenReader.speechRate",
     "http://registry\\.gpii\\.net/common/speakTutorialMessages": "display.screenReader.-provisional-speakTutorialMessages",
@@ -55,6 +57,7 @@
     "http://registry\\.gpii\\.net/common/syllabificationEnabled": "-provisional-cognitiveSupport.-provisional-syllabificationEnabled",
     "http://registry\\.gpii\\.net/common/volume": "-provisional-general.-provisional-volume",
     "http://registry\\.gpii\\.net/common/language": "language",
+    "http://registry\\.gpii\\.net/common/wallpaper": "display.screenEnhancement.wallpaper",
     "http://registry\\.gpii\\.net/common/DPIScale": "display.screenEnhancement.-provisional-DPIScale",
     "http://registry\\.gpii\\.net/common/speechControl": "control.-provisional-speechControl", // This is not currently supported by any real solutions, but rather used for user testing/demoing
     "": {
