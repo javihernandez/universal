@@ -2042,6 +2042,9 @@
                 "filename": "firefox.exe"
             }
         ],
+        // Same as "trace.easyOne.communicator.windows"
+        //
+        "configure": [ "settings.configure" ],
         "isInstalled": [
             {
                 "type": "gpii.deviceReporter.alwaysInstalled"
