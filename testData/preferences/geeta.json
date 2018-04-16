@@ -1,0 +1,13 @@
+{
+    "flat": {
+        "name": "Geeta",
+        "contexts": {
+            "gpii-default": {
+                "name": "Default preferences",
+                "preferences": {
+                    "http://registry.gpii.net/common/language": "hi-IN"
+                }
+            }
+        }
+    }
+}
