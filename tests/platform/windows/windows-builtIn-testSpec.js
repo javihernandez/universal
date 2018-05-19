@@ -125,6 +125,24 @@ gpii.tests.windows.builtIn = [
                                 "name": "HIGHCONTRAST"
                             }
                         }
+                    }, { // Wallapper settings
+                        "settings": {
+                            "Wallpaper": {
+                                "path": "pvParam",
+                                "value": "C:\\Windows\\Web\\Wallpaper\\Theme1\\img1.jpg"
+                            }
+                        },
+                        "options": {
+                            "getAction": "SPI_GETDESKWALLPAPER",
+                            "setAction": "SPI_SETDESKWALLPAPER",
+                            "uiParam": 260,
+                            "pvParam": {
+                                "type": "array",
+                                "valueType": "TCHAR",
+                                "length": 260
+                            },
+                            "fWinIni": "SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE"
+                        }
                     }
                 ]
             },
@@ -185,6 +203,128 @@ gpii.tests.windows.builtIn = [
                             "Wait": "REG_SZ"
                         }
                     }
+                }, { // Narrator
+                    "settings": {
+                        "SpeechSpeed": 11,
+                        "SpeechPitch": 4,
+                        "InteractionMouse": 1,
+                        "CoupleNarratorCursorKeyboard": 1,
+                        "FollowInsertion": 0,
+                        "EchoChars": 0,
+                        "EchoWords": 1
+                    },
+                    "options": {
+                        "hKey": "HKEY_CURRENT_USER",
+                        "path": "Software\\Microsoft\\Narrator",
+                        "dataTypes": {
+                            "SpeechSpeed": "REG_DWORD",
+                            "SpeechPitch": "REG_DWORD",
+                            "InteractionMouse": "REG_DWORD",
+                            "CoupleNarratorCursorKeyboard": "REG_DWORD",
+                            "FollowInsertion": "REG_DWORD",
+                            "EchoChars": "REG_DWORD",
+                            "EchoWords": "REG_DWORD"
+                        }
+                    }
+                }, { // TaskView buttons
+                    "settings": {
+                        "ShowTaskViewButton": 0
+                    },
+                    "options": {
+                        "hKey": "HKEY_CURRENT_USER",
+                        "path": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+                        "dataTypes": {
+                            "ShowTaskViewButton": "REG_DWORD"
+                        }
+                    }
+                }, { // Taskbar searchbox
+                    "settings": {
+                        "SearchboxTaskbarMode": 0
+                    },
+                    "options": {
+                        "hKey": "HKEY_CURRENT_USER",
+                        "path": "Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+                        "dataTypes": {
+                            "SearchboxTaskbarMode": "REG_DWORD"
+                        }
+                    }
+                }, { // LockScreen
+                    "settings": {
+                        "NoLockScreen": 1
+                    },
+                    "options": {
+                        "hKey": "HKEY_CURRENT_USER",
+                        "path": "Policies\\Microsoft\\Windows\\Personalization",
+                        "dataTypes": {
+                            "NoLockScreen": "REG_DWORD"
+                        }
+                    }
+                }, { // TitleBarColor
+                    "settings": {
+                        "ColorPrevalence": 1
+                    },
+                    "options": {
+                        "hKey": "HKEY_CURRENT_USER",
+                        "path": "SOFTWARE\\Microsoft\\Windows\\DWM",
+                        "dataTypes": {
+                            "ColorPrevalence": "REG_DWORD"
+                        }
+                    }
+                }, { // TaskBarColor
+                    "settings": {
+                        "ColorPrevalence": 1
+                    },
+                    "options": {
+                        "hKey": "HKEY_CURRENT_USER",
+                        "path": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+                        "dataTypes": {
+                            "ColorPrevalence": "REG_DWORD"
+                        }
+                    }
+                }, { // CustomStartMenu
+                    "settings": {
+                        "ForceStartSize": 1
+                    }, "options": {
+                        "hKey": "HKEY_CURRENT_USER",
+                        "path": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer",
+                        "dataTypes": {
+                            "ForceStartSize": "REG_DWORD"
+                        }
+                    }
+                }, { // ImmersiveMode
+                    "settings": {
+                        "TabletMode": 1,
+                        "SignInMode": 0,
+                        "ConvertibleSlateModePromptPreference": 2
+                    }, "options": {
+                        "hKey": "HKEY_CURRENT_USER",
+                        "path": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ImmersiveShell",
+                        "dataTypes": {
+                            "TabletMode": "REG_DWORD",
+                            "SignInMode": "REG_DWORD",
+                            "ConvertibleSlateModePromptPreference": "REG_DWORD"
+                        }
+                    }
+                }, { // TaskbarAppsVisibility
+                    "settings": {
+                        "TaskbarAppsVisibleInTabletMode": 0
+                    }, "options": {
+                        "hKey": "HKEY_CURRENT_USER",
+                        "path": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+                        "dataTypes": {
+                            "TaskbarAppsVisibleInTabletMode": "REG_DWORD"
+                        }
+                    }
+                }, { // TaskbarAutoHideInTabletMode
+                    "settings": {
+                        "TaskbarAutoHideInTabletMode": 1
+                    }, "options": {
+                        "hKey": "HKEY_CURRENT_USER",
+                        "path": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+                        "dataTypes": {
+                            "TaskbarAutoHideInTabletMode": "REG_DWORD"
+                        }
+                    }
                 }]
             },
             "gpii.windows.displaySettingsHandler": {
@@ -193,7 +333,8 @@ gpii.tests.windows.builtIn = [
                         "screen-resolution": {
                             "width": 800,
                             "height": 600
-                        }
+                        },
+                        "screen-dpi": 1
                     }
                 }]
             }

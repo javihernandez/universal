@@ -1,13 +1,14 @@
 {
     "flat": {
+        "name": "Elmer",
         "contexts": {
             "gpii-default": {
                 "name": "Default preferences",
                 "preferences": {
                     "http://registry.gpii.net/applications/com.microsoft.windows.screenResolution": {
                         "screen-resolution": {
-                            "width": 800,
-                            "height": 600
+                            "width": 1280,
+                            "height": 720
                         }
                     }
                 }

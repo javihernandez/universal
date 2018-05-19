@@ -20,13 +20,14 @@ var fluid = require("infusion"),
     gpii = fluid.registerNamespace("gpii"),
     kettle = fluid.registerNamespace("kettle");
 
-require("../index.js");
+fluid.require("%universal");
 require("./shared/DevelopmentTestDefs.js");
 
 gpii.loadTestingSupport();
 
 fluid.registerNamespace("gpii.tests.untrusted.development");
 
+// The test pouchdb data is from %universal/tests/platform/cloud/OAuth2AcceptanceDataStore.json
 gpii.tests.untrusted.development.testDefs = fluid.transform(gpii.tests.development.testDefs, function (testDefIn) {
     var testDef = fluid.extend(true, {}, testDefIn, {
         config: {

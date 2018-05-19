@@ -1,5 +1,7 @@
 {
+
     "flat": {
+        "name": "Manuel",
         "contexts": {
             "gpii-default": {
                 "name": "Default preferences",
@@ -47,7 +49,7 @@
                         "type": "http://registry.gpii.net/conditions/inRange",
                         "max": 200,
                         "min": 0,
-                        "inputPath": "http://registry\\.gpii\\.net/common/environment/visual\\.luminance"
+                        "inputPath": "http://registry\\.gpii\\.net/common/environment/illuminance"
                     }
                 ]
             }
