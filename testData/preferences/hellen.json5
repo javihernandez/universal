@@ -1,0 +1,19 @@
+// # Hellen
+//
+// The preference sets the following Windows 10 high-contrast feature:
+//  - HighContrast on/off: On.
+//  - HighContrast theme: yellow-black.
+{
+    "flat": {
+        "name": "Hellen",
+        "contexts": {
+            "gpii-default": {
+                "name": "Default preferences",
+                "preferences": {
+                    "http://registry.gpii.net/common/highContrast/enabled": true,
+                    "http://registry.gpii.net/common/highContrastTheme": "yellow-black"
+                }
+            }
+        }
+    }
+}
