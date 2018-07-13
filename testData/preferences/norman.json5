@@ -1,0 +1,30 @@
+// # Norman
+//
+// The preference sets the following Windows 10 narrator features:
+//  - Narrator on/off: On.
+//  - Narrator voice speed: Slowest.
+//  - Narrator voice pitch: 3/4 of the max value.
+//  - Narrator read typed characters: Enabled.
+//  - Narrator read typed words: Enabled.
+//  - Text cursor follows Narrator when editing: Enabled.
+{
+    "flat": {
+        "name": "Norman",
+        "contexts": {
+            "gpii-default": {
+                "name": "Default preferences",
+                "preferences": {
+                    "http://registry.gpii.net/applications/com.microsoft.windows.narrator" : {
+                        "SpeechSpeed": 0,
+                        "SpeechPitch": 15,
+                        "InteractionMouse":1,
+                        "CoupleNarratorCursorKeyboard": 1,
+                        "FollowInsertion":1,
+                        "EchoChars": 1,
+                        "EchoWords": 1
+                    }
+                }
+            }
+        }
+    }
+}
