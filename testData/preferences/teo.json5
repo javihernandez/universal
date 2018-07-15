@@ -1,0 +1,26 @@
+// # Teo
+//
+// The preference sets the following Windows 10 typing features:
+//  - Spelling: Autocorrect misspelled words               -> Disabled
+//  - Spelling: Highlight misspelled words                 -> Disabled
+//
+//  - Typing: Show text suggestions while typing           -> Disabled
+//  - Typing: Add space after text suggestions is chosen   -> Disabled
+//  - Typing: Double-tap of space bar add period           -> Disabled
+{
+    "flat": {
+        "name": "Teo",
+        "contexts": {
+            "gpii-default": {
+                "name": "Default preferences",
+                "preferences": {
+                    "http://registry.gpii.net/common/autocorrectionEnabled": false,
+                    "http://registry.gpii.net/common/spellCheckEnabled": false,
+                    "http://registry.gpii.net/common/textPredictionEnabled": false,
+                    "http://registry.gpii.net/common/textPredictionWithSpaceEnabled": false,
+                    "http://registry.gpii.net/common/doubleTabSpaceEnabled": false
+                }
+            }
+        }
+    }
+}

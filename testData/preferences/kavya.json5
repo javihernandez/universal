@@ -1,0 +1,23 @@
+// # Kavya
+//
+// The preference sets the following Windows 10 touch-keyboard features:
+//  - Touch keyboard: Touch keyboard sounds                                             -> Disabled
+//  - Touch keyboard: Auto-capitalize sentences with touch keyboard                     -> Disabled
+//  - Touch keyboard: Double-tap shift for touch keyboard caps lock                     -> Disabled
+//  - Touch keyboard: Show touch keyboard in desktop mode when keyboard is not attached -> Enabled
+{
+    "flat": {
+        "name": "Kavya",
+        "contexts": {
+            "gpii-default": {
+                "name": "Default preferences",
+                "preferences": {
+                    "http://registry.gpii.net/common/keyAudioFeedbackEnabled": false,
+                    "http://registry.gpii.net/common/autoShiftEngageEnabled": false,
+                    "http://registry.gpii.net/common/shiftLockEnabled": false,
+                    "http://registry.gpii.net/common/desktopModeAutoInvokeEnabled": true
+                }
+            }
+        }
+    }
+}
