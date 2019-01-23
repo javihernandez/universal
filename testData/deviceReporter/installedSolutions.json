@@ -157,6 +157,9 @@
 
     {
         "id": "net.gpii.explode"
-    }
+    },
 
+    {
+        "id": "com.microsoft.office"
+    }
 ]
