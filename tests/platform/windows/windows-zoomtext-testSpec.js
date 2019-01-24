@@ -18,16 +18,16 @@ Seventh Framework Programme (FP7/2007-2013) under grant agreement no. 289016.
 var fluid = require("infusion"),
     gpii = fluid.registerNamespace("gpii");
 
-fluid.require("%universal");
+fluid.require("%gpii-universal");
 
 gpii.loadTestingSupport();
 
-fluid.registerNamespace("gpii.tests.windows");
+fluid.registerNamespace("gpii.tests.windows.zoomtext");
 
-gpii.tests.windows.zoomtext = [
+gpii.tests.windows.zoomtext.testDefs = [
     {
         name: "Testing NP set \"zoomtext_application\" using Flat matchmaker",
-        userToken: "zoomtext_application",
+        gpiiKey: "zoomtext_application",
         settingsHandlers: {
             "gpii.settingsHandlers.INISettingsHandler": {
                 "some.app.id": [
@@ -58,7 +58,7 @@ gpii.tests.windows.zoomtext = [
     },
     {
         name: "Testing NP set \"zoomtext_common\" using Flat matchmaker",
-        userToken: "zoomtext_common",
+        gpiiKey: "zoomtext_common",
         settingsHandlers: {
             "gpii.settingsHandlers.INISettingsHandler": {
                 "some.app.id": [
@@ -89,7 +89,7 @@ gpii.tests.windows.zoomtext = [
     },
     {
         name: "Testing NP set \"zoomtext_common\" using Flat matchmaker",
-        userToken: "zoomtext_common2",
+        gpiiKey: "zoomtext_common2",
         settingsHandlers: {
             "gpii.settingsHandlers.INISettingsHandler": {
                 "some.app.id": [
@@ -120,7 +120,7 @@ gpii.tests.windows.zoomtext = [
     },
     {
         name: "Testing NP set \"zoomtext_common\" using Flat matchmaker",
-        userToken: "zoomtext_common3",
+        gpiiKey: "zoomtext_common3",
         settingsHandlers: {
             "gpii.settingsHandlers.INISettingsHandler": {
                 "some.app.id": [
@@ -152,8 +152,8 @@ gpii.tests.windows.zoomtext = [
 ];
 
 module.exports = gpii.test.bootstrap({
-    testDefs:  "gpii.tests.windows.zoomtext",
+    testDefs:  "gpii.tests.windows.zoomtext.testDefs",
     configName: "gpii.tests.acceptance.windows.zoomtext.config",
-    configPath: "%universal/tests/platform/windows/configs"
+    configPath: "%gpii-universal/tests/platform/windows/configs"
 }, ["gpii.test.integration.testCaseHolder.windows"],
     module, require, __dirname);
