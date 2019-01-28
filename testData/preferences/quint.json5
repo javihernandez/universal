@@ -5,11 +5,10 @@
       "gpii-default": {
         "name": "Default preferences",
         "preferences": {
-          "http:\/\/registry.gpii.net\/common\/language": "es-ES",
           "http:\/\/registry.gpii.net\/applications\/com.freedomscientific.jaws": {
             "Voice Profiles.ActiveVoiceProfileName": "GPII",
             "Options.PrimarySynthesizer": "eloq",
-            "options.SayAllIndicateCaps": false,
+            "Options.SayAllIndicateCaps": false,
             "ENU-Global.Rate": 50,
             "ENU-Global.Pitch": 75,
             "ENU-Global.Volume": 100,
@@ -40,10 +39,10 @@
             "ENU-MenuAndDialog.SynthLangString": "Castilian Spanish",
             "ENU-Message.SynthLangString": "Castilian Spanish",
             "ENU-PCCursor.SynthLangString": "Castilian Spanish",
-            "options.TypingEcho": 3,
-            "options.SayAllMode": 0,
+            "Options.TypingEcho": 3,
+            "Options.SayAllMode": 0,
             "Braille.BrailleMode": 0,
-            "options.SayAllIgnoreShiftKeys": true
+            "Options.SayAllIgnoreShiftKeys": true
           }
         }
       }
