@@ -10,7 +10,7 @@
 //          + Follow the cursor while typing: true
 //          + Auto height adjust: true
 //          + Predict one word ahead: true
-//          + Insert space after predictions: false
+//          + Insert space after predictions: false // TODO: Research why this setting is not preserved
 //          + Use spelling suggestions for the prediction list: false
 //
 //      Prediction Speech:
@@ -57,7 +57,7 @@
                         "ApplicationSettings.Prediction.FollowCursor.$t": true,
                         "ApplicationSettings.Prediction.AutoHeightAdjust.$t": true,
                         "ApplicationSettings.Prediction.winPredictOneWordAhead.$t": true,
-                        "ApplicationSettings.Prediction.InsertSpaceAfterPred.$t": false,
+                        "ApplicationSettings.Prediction.InsertSpaceAfterPred.$t": true,
                         "ApplicationSettings.Prediction.UseSpellingForPredictions.$t": false,
                         // Prediction Speech
                         "ApplicationSettings.Prediction.SpeakPredictionOnMouseHover.$t": false,
