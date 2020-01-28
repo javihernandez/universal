@@ -2,6 +2,10 @@
     "type": "gpii.tests.acceptance.resetAtStart.config",
     "options": {
         "distributeOptions": {
+            "acceptance.defaultSettings": {
+                "source": "{that}.options.flowManagerOptions",
+                "target": "{that gpii.flowManager.local}.options"
+            },
             "acceptance.resetAtStart": {
                 "record": true,
                 "target": "{that gpii.flowManager.local}.options.resetAtStart"

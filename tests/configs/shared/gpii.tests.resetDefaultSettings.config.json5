@@ -6,21 +6,11 @@
             // that this test is running on.
             "components": {
                 "defaultSettingsLoader": {
-                    "type": "fluid.component",
-                    "options": {
-                        "invokers": {
-                            "get": {
-                                "funcName": "fluid.identity"
-                            }
-                        }
-                    }
+                    "type": "fluid.emptySubcomponent"
                 }
-            }
-        },
-        "distributeOptions": {
-            "acceptance.flowManagerOptions": {
-                "source": "{that}.options.flowManagerOptions",
-                "target": "{that gpii.flowManager.local}.options"
+            },
+            "listeners": {
+                "onCreate.loadDefaultSettings": "fluid.identity"
             }
         }
     }
