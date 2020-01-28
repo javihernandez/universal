@@ -1,6 +1,5 @@
 /*!
 Copyright 2016 OCAD University
-Copyright 2019 OCAD University
 
 Licensed under the New BSD license. You may not use this file except in
 compliance with this License.
@@ -42,14 +41,26 @@ resolve("browserify", {basedir: universalPath}, function (err) {
             mkdirp(browserifyDir, function () {
                 var browserifyCommandTemplate = "node " + universalPath + "/node_modules/browserify/bin/cmd.js -s %module " + universalPath + "/node_modules/%moduleScript -o " + browserifyDir + "/%outputFile";
 
-                var browserifyUtilCommand = fluid.stringTemplate(browserifyCommandTemplate, {
-                    module: "util",
-                    moduleScript: "util/util.js",
-                    outputFile: "util.js"
+                var browserifyHttpCommand = fluid.stringTemplate(browserifyCommandTemplate, {
+                    module: "http",
+                    moduleScript: "http-browserify/index.js",
+                    outputFile: "http.js"
+                });
+                var browserifyHttpsCommand = fluid.stringTemplate(browserifyCommandTemplate, {
+                    module: "https",
+                    moduleScript: "https-browserify/index.js",
+                    outputFile: "https.js"
+                });
+                var browserifyUrlModuleCommand = fluid.stringTemplate(browserifyCommandTemplate, {
+                    module: "urlModule",
+                    moduleScript: "url/url.js",
+                    outputFile: "urlModule.js"
                 });
 
                 // execute browserify commands
-                exec(browserifyUtilCommand);
+                exec(browserifyHttpCommand);
+                exec(browserifyHttpsCommand);
+                exec(browserifyUrlModuleCommand);
             });
         });
     }
