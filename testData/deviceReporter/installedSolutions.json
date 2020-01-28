@@ -49,6 +49,10 @@
     },
 
     {
+        "id": "com.microsoft.windows.focusAssist"
+    },
+
+    {
         "id": "com.microsoft.windows.highContrast"
     },
 
@@ -70,6 +74,10 @@
 
     {
         "id": "com.microsoft.windows.notificationDuration"
+    },
+
+    {
+        "id": "com.microsoft.windows.notifications"
     },
 
     {
