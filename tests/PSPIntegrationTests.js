@@ -30,6 +30,12 @@ gpii.tests.pspIntegration.buildTestDefs = function (testDefs) {
             config: {
                 configName: "gpii.tests.acceptance.pspIntegration.config",
                 configPath: "%gpii-universal/tests/configs"
+            },
+            distributeOptions: {
+                "acceptance.defaultSettings": {
+                    record: "{that}.options.defaultSettings",
+                    target: "{that gpii.flowManager.local}.options.defaultSettings"
+                }
             }
         }, testDef);
     });

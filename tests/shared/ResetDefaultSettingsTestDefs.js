@@ -96,10 +96,8 @@ gpii.tests.resetDefaultSettings.buildTestDefs = function (testCases, config) {
             config: config,
             "distributeOptions": {
                 "acceptance.defaultSettings": {
-                    "record": {
-                        args: oneTestCase.defaultSettings
-                    },
-                    "target": "{that defaultSettingsLoader}.options.invokers.get"
+                    "record": oneTestCase.defaultSettings,
+                    "target": "{that gpii.flowManager.local}.options.defaultSettings"
                 }
             }
         }, testCaseOptions, testSequence);
