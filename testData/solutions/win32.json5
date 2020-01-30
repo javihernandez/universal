@@ -28412,11 +28412,8 @@
                     "ApplicationSettings.AppBar.optToolbarBackColour.$t": {
                         "schema": {
                             "title": "Toolbar color",
-                            "description": "Changes the ammount of time for considering a click when hovering over a key",
-                            "type": "integer",
-                            "default": 1000,
-                            "minimum": 500,
-                            "maximum": 3000
+                            "description": "Changes the toolbar color using a hexadecimal value.",
+                            "type": "string"
                         }
                     },
                     "ApplicationSettings.AppBar.RunOnStartUp.$t": {
