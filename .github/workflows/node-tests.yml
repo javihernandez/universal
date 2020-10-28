@@ -7,9 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js
+    - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm install
-    - run: node tests/all-tests.js
+    - name: Run npm install
+      run: npm install
+    - name: Pass linter
+      run: $(npm bin)/grunt lint
+    - name: Run node tests
+      run: node tests/all-tests.js
