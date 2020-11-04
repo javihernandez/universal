@@ -1,6 +1,6 @@
-name: gpii-universal node tests
+name: gpii-universal tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -16,4 +16,6 @@ jobs:
     - name: Pass linter
       run: $(npm bin)/grunt lint
     - name: Run node tests
-      run: node tests/all-tests.js
+      run: npm run test:node
+    - name: Run browser tests
+      run: npm run test:browser
