@@ -17,7 +17,7 @@ jobs:
       run: npm install
     - name: Pass linter
       run: $(npm bin)/grunt lint
-    - name: Run node tests
-      run: npm run test:node
+      #- name: Run node tests
+      #  run: npm run test:node
     - name: Run browser tests
       run: npm run test:browser
