@@ -13,13 +13,9 @@
             "install": {
                 "type": "gpii.iod.settingsHandler",
                 "capabilities": [
-                    "http://registry\.gpii\.net/applications/net\.gpii\.test\.iod"
+                    "http://registry\\.gpii\\.net/applications/net\\.gpii\\.test\\.iod"
                 ],
-                "options": {
-                },
-//                "capabilitiesTransformations": {
-//                    "package1": "http://registry\\.gpii\\.net/applications/net\\.gpii\\.test\\.iod"
-//                }
+                "options": {}
             }
         },
         "isInstalled": [
@@ -24856,7 +24852,7 @@
                             "description": "The path to the image to be set as the new desktop wallpaper.",
                             "type": "object",
                             "properties": {
-                                "path": { "type":  "string"},
+                                "path": { "type":  "string", "required": false},
                                 "value": {
                                     "type": "string",
                                     "default": "%SystemRoot%\\Web\\Wallpaper\\Windows\\img0.jpg"
@@ -24919,7 +24915,7 @@
                             "description": "The path to the image to be set as the new desktop wallpaper.",
                             "type": "object",
                             "properties": {
-                                "path": { "type":  "string", "required": true},
+                                "path": { "type":  "string", "required": false},
                                 "value": {
                                     "type": "string",
                                     "required": true,
@@ -26277,7 +26273,7 @@
                             "description": "Enable/Disable filter keys",
                             "type": "object",
                             "properties": {
-                                "path": { "type":  "string", "required": true},
+                                "path": { "type":  "string", "required": false},
                                 "value": {
                                     "required": true,
                                     "type": "boolean",
@@ -26292,7 +26288,7 @@
                             "description": "Slow keys interval time in milliseconds",
                             "type": "object",
                             "properties": {
-                                "path": { "type":  "string", "required": true},
+                                "path": { "type":  "string", "required": false},
                                 "value": {
                                     "required": true,
                                     "type": "integer",
@@ -26507,7 +26503,7 @@
                             "description": "Whether to enable/disable High Contrast",
                             "type": "object",
                             "properties": {
-                                "path": { "type":  "string", "required": true},
+                                "path": { "type":  "string", "required": false},
                                 "value": {
                                     "required": true,
                                     "type": "boolean",
@@ -26772,7 +26768,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "default": 0,
@@ -26851,7 +26847,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "type": "number",
@@ -27067,7 +27063,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "type": "boolean",
@@ -27140,7 +27136,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "enum": [0, 1],
@@ -27201,7 +27197,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "type": "boolean",
@@ -27715,7 +27711,7 @@
                             "description": "Enable/Disable mouse keys",
                             "type": "object",
                             "properties": {
-                                "path": { "type":  "string", "required": true},
+                                "path": { "type":  "string", "required": false},
                                 "value": {
                                     "required": true,
                                     "type": "boolean",
@@ -27730,7 +27726,7 @@
                             "description": "Speed of mouse keys",
                             "type": "object",
                             "properties": {
-                                "path": { "type":  "string"},
+                                "path": { "type":  "string", "required": false},
                                 "value": {
                                     "type": "number",
                                     "minimum": 10,
@@ -27852,7 +27848,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 // This one is already in use in the QSS and can't be booleanised yet.
                                 "value": {
@@ -27911,7 +27907,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -27980,7 +27976,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28034,7 +28030,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28088,7 +28084,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28147,7 +28143,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28201,7 +28197,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28255,7 +28251,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28344,7 +28340,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28402,7 +28398,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28464,7 +28460,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28521,7 +28517,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28575,7 +28571,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -28715,7 +28711,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": {
                                     "required": true,
@@ -29418,7 +29414,7 @@
                     "hKey": "HKEY_CURRENT_USER",
                     "path": "Control Panel\\Accessibility\\SoundSentry",
                     "dataTypes": {
-                        "WindowsEffect": "REG_DWORD"
+                        "WindowsEffect": "REG_SZ"
                     }
                 },
                 "supportedSettings": {
@@ -29427,10 +29423,10 @@
                             "title": "SoundSentry",
                             "description": "Selects the desired visual notification for sounds.",
                             "enum": [
-                                0,
-                                1,
-                                2,
-                                3
+                                "0",
+                                "1",
+                                "2",
+                                "3"
                             ],
                             "enumLabels": [
                                 "No visual alert",
@@ -29811,7 +29807,7 @@
                                             }
                                         }
                                     ],
-                                    "required": true
+                                    "required": false
                                 },
                                 "value": { "type":  "boolean", "required":  true}
                             }
@@ -32563,8 +32559,10 @@
                     },
                     "contrastTheme": {
                         "transform": {
-                            // Use the same condition for applying a high contrast theme to windows:
-                            // (highContrast.enabled || highContrastTheme) && (highContrastTheme != "regular-contrast")
+                            // Use the same conditions for applying a high
+                            // contrast theme as specified for the
+                            // "com.microsoft.windows.highContrast" solution:
+                            // (highContrast.enabled !== false) && (highContrastTheme !== "regular-contrast")
                             "type": "fluid.transforms.condition",
                             "condition": {
                                 "transform": {
@@ -32573,9 +32571,8 @@
                                         "transform": {
                                             "type": "fluid.transforms.binaryOp",
                                             "leftPath": "http://registry\\.gpii\\.net/common/highContrast/enabled",
-                                            "left": false,
-                                            "operator": "||",
-                                            "rightPath": "http://registry\\.gpii\\.net/common/highContrastTheme",
+                                            "left": true,
+                                            "operator": "!==",
                                             "right": false
                                         }
                                     },
@@ -32645,7 +32642,88 @@
                         }
                     }
                 },
-                "inverseCapabilitiesTransformations": {}
+                "inverseCapabilitiesTransformations": {
+                    "http://registry\\.gpii\\.net/common/characterSpace": {
+                        "transform": {
+                            "type": "fluid.transforms.linearScale",
+                            "inputPath": "characterSpace",
+                            "offset": 1
+                        }
+                    },
+                    "http://registry\\.gpii\\.net/common/highContrast/enabled": {
+                        "transform": {
+                            "type": "fluid.transforms.condition",
+                            "condition": {
+                                "transform": {
+                                    "type": "fluid.transforms.binaryOp",
+                                    "leftPath": "contrastTheme",
+                                    "operator": "!==",
+                                    "right": "default"
+                                }
+                            },
+                            "true": "true",
+                            "false": "false"
+                        }
+                    },
+                    "http://registry\\.gpii\\.net/common/highContrastTheme": {
+                        "transform": {
+                            "type": "fluid.transforms.condition",
+                            "condition": {
+                                "transform": {
+                                    "type": "fluid.transforms.binaryOp",
+                                    "leftPath": "contrastTheme",
+                                    "operator": "!==",
+                                    "right": "default"
+                                }
+                            },
+                            "true": {
+                                "transform": {
+                                    "type": "fluid.transforms.valueMapper",
+                                    "defaultInputPath": "contrastTheme",
+                                    "defaultOutputValue": "default",
+                                    "match": {
+                                        "bw": "black-white",
+                                        "wb": "white-black",
+                                        "by": "black-yellow",
+                                        "yb": "yellow-black",
+                                        "lgdg":"grey-black",
+                                        "gw": "grey-white",
+                                        "bbr": "black-brown"
+                                    }
+                                }
+                            },
+                            "false": "regular-contrast"
+                        }
+                    },
+                    "http://registry\\.gpii\\.net/common/fontSize": {
+                        "transform": {
+                            "type": "fluid.transforms.round",
+                            "scale": 2,
+                            "input": {
+                                "transform": {
+                                    "type": "fluid.transforms.binaryOp",
+                                    "leftPath": "fontSize",
+                                    "right": 12,
+                                    "operator": "*"
+                                }
+                            }
+                        }
+                    },
+                    "http://registry\\.gpii\\.net/common/inputsLarger/enabled": "inputsLargerEnabled",
+                    "http://registry\\.gpii\\.net/common/lineSpace": "lineSpace",
+                    "http://registry\\.gpii\\.net/common/highlightColor": "selectionTheme",
+                    "http://registry\\.gpii\\.net/common/selfVoicing/enabled": "selfVoicingEnabled",
+                    "http://registry\\.gpii\\.net/common/simplifiedUi/enabled": "simplifiedUiEnabled",
+                    "http://registry\\.gpii\\.net/common/syllabification/enabled": "syllabificationEnabled",
+                    "http://registry\\.gpii\\.net/common/tableOfContents": "tableOfContentsEnabled",
+                    "http://registry\\.gpii\\.net/common/wordSpace": {
+                        "transform": {
+                            "type": "fluid.transforms.linearScale",
+                            "offset": -1,
+                            "inputPath": "wordSpace"
+                        }
+                    }
+                }
             }
         },
         "isInstalled": [
@@ -36145,6 +36223,134 @@
                 application: "Word"
             }
         ],
+        "isInstalled": [
+            {
+                "type": "gpii.deviceReporter.alwaysInstalled"
+            }
+        ]
+    },
+    "net.gpii.morphic": {
+        "name": "Morphic",
+        "contexts": {
+            "OS": [
+                {
+                    "id": "win32",
+                    "version": ">=5.0"
+                }
+            ]
+        },
+        "settingsHandlers": {
+            "configure": {
+                "type": "gpii.settingsHandlers.webSockets",
+                "liveness": "live",
+                "options": {
+                  "path": "net.gpii.morphic"
+                },
+                "supportedSettings": {
+                    "tooltipDisplayDelay": {
+                        "schema": {
+                            "title": "QSS button tooltip delay",
+                            "description": "Defines the delay in milliseconds before the tooltip is shown after a QSS button is selected",
+                            "type": "integer",
+                            "default": 500,
+                            "minimum": 1,
+                            "maximum": 10000
+                        }
+                    },
+                    "scaleFactor": {
+                        "schema": {
+                            "title": "QSS scaling factor",
+                            "description": "The scaling factor for the QSS",
+                            "type": "number",
+                            "default": 1.2,
+                            "minimum": 1,
+                            "maximum": 2
+                        }
+                    },
+                    "alwaysUseChrome": {
+                        "schema": {
+                            "title": "Always Use Chrome",
+                            "description": "Determines if Morphic should always use Chrome for launching external services",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    },
+                    "appBarQss": {
+                        "schema": {
+                            "title": "Dock to bottom",
+                            "description": "Make the QSS dock to the bottom of the screen, so application windows are positioned above it",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    },
+                    "buttonList": {
+                        "schema": {
+                            "title": "QSS Button List",
+                            "description": "List of the desired list of buttons shown in QSS",
+                            "type": "array",
+                            "default": [
+                                "screen-zoom",
+                                "text-zoom",
+                                "high-contrast",
+                                "color-vision",
+                                "mouse",
+                                "volume",
+                                "||",
+                                "read-aloud",
+                                "snipping-tool",
+                                "office-simplification",
+                                "launch-documorph",
+                                "usb-open",
+                                "||",
+                                "service-more",
+                                "service-save",
+                                "service-undo",
+                                "service-reset-all",
+                                "service-close"
+                            ]
+                        }
+                    },
+                    "morePanelList": {
+                        "schema": {
+                            "title": "QSS More Panel Button List",
+                            "description": "List of the desired list of buttons shown in the More Panel",
+                            "type": "array",
+                            // The more panel is able to allocate 3 rows of buttons.
+                            // Each row can contain 8 buttons. At this moment there are no default buttons.
+                            "default": [
+                                [ /* first row of buttons */ ],
+                                [ /* second row of buttons */ ],
+                                [ /* third row of buttons */ ]
+                            ]
+                        }
+                    },
+                    "closeQssOnClickOutside": {
+                        "schema": {
+                            "title": "Hide QSS on Outside Click",
+                            "description": "Whether to hide the QSS when a user clicks outside of it",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    },
+                    "disableRestartWarning": {
+                        "schema": {
+                            "title": "Disable restart warnings",
+                            "description": "Whether to disable the displaying of notifications that suggest some applications may need to be restarted in order for a changed setting to be fully applied. An example for such setting is `Language`. If set to `true`, such notifications will NOT be displayed.",
+                            "type": "boolean",
+                            "default": true
+                        }
+                    },
+                    "openQssShortcut": {
+                        "schema": {
+                            "title": "Open QSS Shortcut",
+                            "description": "The shortcut that open the QSS. For posible values refer to: https://electronjs.org/docs/api/accelerator",
+                            "type": "string",
+                            "default": "Shift+Ctrl+AltOrOption+SuperOrCmd+M"
+                        }
+                    }
+                }
+            }
+        },
         "isInstalled": [
             {
                 "type": "gpii.deviceReporter.alwaysInstalled"

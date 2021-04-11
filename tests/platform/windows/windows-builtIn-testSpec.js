@@ -98,17 +98,18 @@ gpii.tests.windows.builtIn = [
                         "options": {
                             "functionName": "DoubleClickHeight"
                         }
-                    },
-                    {
-                        "settings": {
-                            "Volume": {
-                                "value": 0.7
-                            }
-                        },
-                        "options": {
-                            "functionName": "Volume"
-                        }
                     }
+                    // TODO: Disabled due to GPII-4518
+                    //{
+                    //    "settings": {
+                    //        "Volume": {
+                    //            "value": 0.7
+                    //        }
+                    //    },
+                    //    "options": {
+                    //        "functionName": "Volume"
+                    //    }
+                    //}
                 ]
             },
             "gpii.windows.spiSettingsHandler": {
@@ -720,13 +721,13 @@ gpii.tests.windows.builtIn = [
                 }],
                 "com.microsoft.windows.soundSentry": [{
                     "settings": {
-                        "WindowsEffect": 2
+                        "WindowsEffect": "2"
                     },
                     "options": {
                         "hKey": "HKEY_CURRENT_USER",
                         "path": "Control Panel\\Accessibility\\SoundSentry",
                         "dataTypes": {
-                            "WindowsEffect": "REG_DWORD"
+                            "WindowsEffect": "REG_SZ"
                         }
                     }
                 }],
