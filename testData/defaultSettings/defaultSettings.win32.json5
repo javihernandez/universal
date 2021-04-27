@@ -7,7 +7,8 @@
                 "http://registry.gpii.net/common/highContrastTheme": "regular-contrast",
                 "http://registry.gpii.net/common/selfVoicing/enabled": false,
                 "http://registry.gpii.net/applications/com.microsoft.office": {
-                    "word-ribbon": "StandardSet"
+                    "word-ribbon": "StandardSet",
+                    "excel-ribbon": "StandardSet"
                 },
                 "http://registry.gpii.net/applications/com.microsoft.windows.colorFilters": {
                     "FilterType": 0
