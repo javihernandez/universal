@@ -36156,7 +36156,7 @@
                         },
                         "excel-ribbon": {
                             "path": "${{environment}.LOCALAPPDATA}\\Microsoft\\Office\\Excel.officeUI",
-                            "url": "https://raw.githubusercontent.com/GPII/gpii-assets/master/dataBlocks/officeRibbon/Excel%20%value.xml",
+                            "url": "https://raw.githubusercontent.com/GPII/gpii-assets/master/dataBlocks/officeRibbon/Word%20%value.xml",
                             "cache": true
                         }
                     }
@@ -36213,6 +36213,10 @@
             {
                 type: "gpii.windows.office.reloadRibbon",
                 application: "Word"
+            },
+            {
+                type: "gpii.windows.office.reloadRibbon",
+                application: "Excel"
             }
         ],
         "restore": [
@@ -36221,6 +36225,10 @@
             {
                 type: "gpii.windows.office.reloadRibbon",
                 application: "Word"
+            },
+            {
+                type: "gpii.windows.office.reloadRibbon",
+                application: "Excel"
             }
         ],
         "isInstalled": [
