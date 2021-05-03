@@ -24618,6 +24618,89 @@
             }
         ]
     },
+    "com.microsoft.windows.activityHistory": {
+        "name": "Windows Built-in Activity History",
+        "contexts": {
+            "OS": [
+                {
+                    "id": "win32",
+                    "version": ">=5.0"
+                }
+            ]
+        },
+        "capabilities": [],
+        "settingsHandlers": {
+            "configure": {
+                "type": "gpii.windows.systemSettingsHandler",
+                "liveness": "live",
+                "options": {
+                    "CheckResult": true
+                },
+                "supportedSettings": {
+                    "SystemSettings_Privacy_ActivityHistoryCollectionEnabled": {
+                        "schema": {
+                            "title": "Store my Activity History on this device",
+                            "description": "Enable or disables Activity History Collection.",
+                            "type": "object",
+                            "properties": {
+                                "value": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
+                            }
+                        }
+                    },
+                    "SystemSettings_Privacy_ActivityHistoryCloudSyncEnabled": {
+                        "schema": {
+                            "title": "Send my Activity History to Microsoft",
+                            "description": "Enable or disables Activity History cloud upload. Requires to be signed into your Microsoft account.",
+                            "type": "object",
+                            "properties": {
+                                "value": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "capabilitiesTransformations": {
+                    "SystemSettings_Privacy_ActivityHistoryCollectionEnabled": {
+                        "transform": {
+                            "type": "fluid.transforms.value",
+                            "inputPath": "http://registry\\.gpii\\.net/applications/com\\.microsoft\\.windows\\.activityHistory.CollectionEnabled",
+                            "outputPath": "value",
+                        }
+                    },
+                    "SystemSettings_Privacy_ActivityHistoryCloudSyncEnabled": {
+                        "transform": {
+                            "type": "fluid.transforms.value",
+                            "inputPath": "http://registry\\.gpii\\.net/applications/com\\.microsoft\\.windows\\.activityHistory.CloudSyncEnabled",
+                            "outputPath": "value"
+                        }
+                    }
+                },
+                "inverseCapabilitiesTransformations": {
+                    "http://registry\\.gpii\\.net/applications/com\\.microsoft\\.windows\\.activityHistory.CollectionEnabled": "SystemSettings_Privacy_ActivityHistoryCollectionEnabled.value",
+                    "http://registry\\.gpii\\.net/applications/com\\.microsoft\\.windows\\.activityHistory.CloudSyncEnabled": "SystemSettings_Privacy_ActivityHistoryCloudSyncEnabled.value"
+                }
+            }
+        },
+        "update": [
+            "settings.configure"
+        ],
+        "configure": [
+            "settings.configure"
+        ],
+        "restore": [
+            "settings.configure"
+        ],
+        "isInstalled": [
+            {
+                "type": "gpii.deviceReporter.alwaysInstalled"
+            }
+        ]
+    },
     "com.microsoft.windows.brightness": {
         "name": "Windows brightness settings",
         "contexts": {
