@@ -10,6 +10,10 @@
                     "word-ribbon": "StandardSet",
                     "excel-ribbon": "StandardSet"
                 },
+                "http://registry.gpii.net/applications/com.microsoft.windows.activityHistory": {
+                    "CollectionEnabled": false,
+                    "CloudSyncEnabled": false
+                },
                 "http://registry.gpii.net/applications/com.microsoft.windows.colorFilters": {
                     "FilterType": 0
                 },
