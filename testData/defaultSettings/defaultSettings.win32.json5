@@ -26,7 +26,8 @@
                 "http://registry.gpii.net/applications/net.gpii.test.iod": {
                     "smartMouse": {},
                     "envSerial": {},
-                    "focusBuddy": {}
+                    "focusBuddy": {},
+                    "smartworkDesktop": {}
                 },
                 "http://registry.gpii.net/applications/net.gpii.morphic": {
                     "tooltipDisplayDelay": 500,
