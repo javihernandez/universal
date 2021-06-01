@@ -1,0 +1,37 @@
+{
+    "contexts": {
+        "gpii-default": {
+            "preferences": {
+                "http://registry.gpii.net/common/DPIScale": 0,
+                "http://registry.gpii.net/common/highContrast/enabled": false,
+                "http://registry.gpii.net/common/highContrastTheme": "regular-contrast",
+                "http://registry.gpii.net/common/selfVoicing/enabled": false,
+                "http://registry.gpii.net/applications/com.microsoft.office": {
+                    "word-ribbon": "StandardSet",
+                    "excel-ribbon": "StandardSet"
+                },
+                "http://registry.gpii.net/applications/com.microsoft.windows.activityHistory": {
+                    "CollectionEnabled": false,
+                    "CloudSyncEnabled": false
+                },
+                "http://registry.gpii.net/applications/com.microsoft.windows.colorFilters": {
+                    "FilterType": 0
+                },
+                "http://registry.gpii.net/applications/com.microsoft.windows.mouseSettings": {
+                    "PointerSpeed": 10,
+                    "SwapMouseButtons": 0,
+                    "DoubleClickTime": 500
+                },
+                "http://registry.gpii.net/common/cursorSize": 0,
+                "http://registry.gpii.net/applications/net.gpii.morphic": {
+                    "tooltipDisplayDelay": 500,
+                    "scaleFactor": 1.2,
+                    "alwaysUseChrome": false,
+                    "appBarQss": false,
+                    "closeQssOnClickOutside": false,
+                    "disableRestartWarning": true
+                }
+            }
+        }
+    }
+}
